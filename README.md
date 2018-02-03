@@ -14,9 +14,9 @@ You must update the following files:
 After you add the missing information to those files then run:
 ./main.sh
 ./loop2.sh
-./block.sh
+./blocks.sh
 
-curl -Lo install.sh https://raw.githubusercontent.com/crombiecrunch/yiimp/master/install.sh 
+curl -Lo install.sh https://raw.githubusercontent.com/P4n75/yiimp-1/master/install.sh 
 bash install.sh
 
 You will be prompted for email, FDQN, and time zone. You onkly get one shot to enter this information correctly!
@@ -24,3 +24,4 @@ You will be prompted for email, FDQN, and time zone. You onkly get one shot to e
 If this helped you or you feel giving please donate BTC Donation: 1AxK9a7dgeHvf3VFuwZ2adGiQTX6S1nhrp
 
 Crombie Crunch
+Revised by PANTS
