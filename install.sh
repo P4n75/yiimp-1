@@ -524,9 +524,9 @@ define('"'"'YAAMP_DBNAME'"'"', '"'"'yiimpfrontend'"'"');
 define('"'"'YAAMP_DBUSER'"'"', '"'"'panel'"'"');
 define('"'"'YAAMP_DBPASSWORD'"'"', '"'"''"${password}"''"'"');
 define('"'"'YAAMP_PRODUCTION'"'"', true);
-define('"'"'YAAMP_RENTAL'"'"', true);
+define('"'"'YAAMP_RENTAL'"'"', false);
 define('"'"'YAAMP_LIMIT_ESTIMATE'"'"', false);
-define('"'"'YAAMP_FEES_MINING'"'"', 0.5);
+define('"'"'YAAMP_FEES_MINING'"'"', 1);
 define('"'"'YAAMP_FEES_EXCHANGE'"'"', 2);
 define('"'"'YAAMP_FEES_RENTING'"'"', 2);
 define('"'"'YAAMP_TXFEE_RENTING_WD'"'"', 0.002);
@@ -540,12 +540,12 @@ define('"'"'YAAMP_USE_NICEHASH_API'"'"', false);
 define('"'"'YAAMP_BTCADDRESS'"'"', '"'"'1HUruZMcSben39E27cyLwsTrk6bbWZs3po'"'"');
 define('"'"'YAAMP_SITE_URL'"'"', '"'"''"${server_name}"''"'"');
 define('"'"'YAAMP_STRATUM_URL'"'"', YAAMP_SITE_URL); // change if your stratum server is on a different host
-define('"'"'YAAMP_SITE_NAME'"'"', '"'"'TheCryptoPool'"'"');
+define('"'"'YAAMP_SITE_NAME'"'"', '"'"'ThePantsPool'"'"');
 define('"'"'YAAMP_ADMIN_EMAIL'"'"', '"'"''"${EMAIL}"''"'"');
 define('"'"'YAAMP_ADMIN_IP'"'"', '"'"''"${Public}"''"'"'); // samples: "80.236.118.26,90.234.221.11" or "10.0.0.1/8"
 define('"'"'YAAMP_ADMIN_WEBCONSOLE'"'"', true);
 define('"'"'YAAMP_NOTIFY_NEW_COINS'"'"', true);
-define('"'"'YAAMP_DEFAULT_ALGO'"'"', '"'"'x11'"'"');
+define('"'"'YAAMP_DEFAULT_ALGO'"'"', '"'"'argon2'"'"');
 define('"'"'YAAMP_USE_NGINX'"'"', true);
 // Exchange public keys (private keys are in a separate config file)
 define('"'"'EXCH_CRYPTOPIA_KEY'"'"', '"'"''"'"');
@@ -564,7 +564,7 @@ define('"'"'EXCH_KRAKEN_KEY'"'"', '"'"''"'"');
 define('"'"'EXCH_LIVECOIN_KEY'"'"', '"'"''"'"');
 define('"'"'EXCH_NOVA_KEY'"'"', '"'"''"'"');
 // Automatic withdraw to Yaamp btc wallet if btc balance > 0.3
-define('"'"'EXCH_AUTO_WITHDRAW'"'"', 0.3);
+define('"'"'EXCH_AUTO_WITHDRAW'"'"', 100.0);
 // nicehash keys deposit account & amount to deposit at a time
 define('"'"'NICEHASH_API_KEY'"'"','"'"'521c254d-8cc7-4319-83d2-ac6c604b5b49'"'"');
 define('"'"'NICEHASH_API_ID'"'"','"'"'9205'"'"');
@@ -578,6 +578,7 @@ $configFixedPoolFees = array(
         '"'"'zr5'"'"' => 2.0,
         '"'"'scrypt'"'"' => 20.0,
         '"'"'sha256'"'"' => 5.0,
+	'"'"'argon2'"'"' => 1.0,
 );
 // Sample custom stratum ports
 $configCustomPorts = array(
