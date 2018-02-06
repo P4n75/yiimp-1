@@ -152,6 +152,7 @@ default         0;
     sudo ufw allow 3533/tcp
     sudo ufw allow 4033/tcp
     sudo ufw allow 3433/tcp
+    sudo ufw allow 4234/tcp
     sudo ufw allow 3633/tcp
     sudo ufw --force enable    
     fi
@@ -262,7 +263,7 @@ echo 'include /etc/nginx/blockuseragents.rules;
  	client_body_buffer_size  50k;
         client_header_buffer_size 50k;
         client_max_body_size 50k;
-        large_client_header_buffers 2 50k;
+        large_client_header_buffers 4 50k;
         sendfile off;
     
         location ~ ^/index\.php$ {
@@ -354,7 +355,7 @@ echo 'include /etc/nginx/blockuseragents.rules;
  	client_body_buffer_size  50k;
         client_header_buffer_size 50k;
         client_max_body_size 50k;
-        large_client_header_buffers 2 50k;
+        large_client_header_buffers 4 50k;
         sendfile off;
         
             # strengthen ssl security
@@ -466,7 +467,7 @@ password='"${rootpasswd}"'
 define('"'"'YIIMP_MYSQLDUMP_USER'"'"', '"'"'panel'"'"');
 define('"'"'YIIMP_MYSQLDUMP_PASS'"'"', '"'"''"${password}"''"'"');
 /* Keys required to create/cancel orders and access your balances/deposit addresses */
-define('"'"'EXCH_BITTREX_SECRET'"'"', '"'"'<my_bittrex_api_secret_key>'"'"');
+define('"'"'EXCH_BITTREX_SECRET'"'"', '"'"''"'"');
 define('"'"'EXCH_BITSTAMP_SECRET'"'"','"'"''"'"');
 define('"'"'EXCH_BLEUTRADE_SECRET'"'"', '"'"''"'"');
 define('"'"'EXCH_BTER_SECRET'"'"', '"'"''"'"');
@@ -495,6 +496,15 @@ define('"'"'EXCH_YOBIT_SECRET'"'"', '"'"''"'"');
     # import sql dump
     sudo zcat 2016-04-03-yaamp.sql.gz | sudo mysql --defaults-group-suffix=host1
     # oh the humanity!
+     sudo mysql --defaults-group-suffix=host1 --force < 2015-07-15-coins_hasmasternodes.sql
+     sudo mysql --defaults-group-suffix=host1 --force < 2015-09-20-blocks_worker.sql
+     sudo mysql --defaults-group-suffix=host1 --force < 2016-02-17-payouts_errmsg.sql
+     sudo mysql --defaults-group-suffix=host1 --force < 2016-02-18-account_donation.sql
+     sudo mysql --defaults-group-suffix=host1 --force < 2016-02-23-shares_diff.sql
+     sudo mysql --defaults-group-suffix=host1 --force < 2016-03-26-markets.sql
+     sudo mysql --defaults-group-suffix=host1 --force < 2016-03-30-coins.sql
+     sudo mysql --defaults-group-suffix=host1 --force < 2016-04-03-accounts.sql
+     sudo mysql --defaults-group-suffix=host1 --force < 2016-04-27-settings.sql
      sudo mysql --defaults-group-suffix=host1 --force < 2016-04-24-market_history.sql
      sudo mysql --defaults-group-suffix=host1 --force < 2016-04-27-settings.sql
      sudo mysql --defaults-group-suffix=host1 --force < 2016-05-11-coins.sql
@@ -508,6 +518,10 @@ define('"'"'EXCH_YOBIT_SECRET'"'"', '"'"''"'"');
      sudo mysql --defaults-group-suffix=host1 --force < 2017-05-accounts_case_swaptime.sql
      sudo mysql --defaults-group-suffix=host1 --force < 2017-06-payouts_coinid_memo.sql
      sudo mysql --defaults-group-suffix=host1 --force < 2017-09-notifications.sql
+     sudo mysql --defaults-group-suffix=host1 --force < 2017-10-bookmarks.sql
+     sudo mysql --defaults-group-suffix=host1 --force < 2017-11-segwit.sql
+     sudo mysql --defaults-group-suffix=host1 --force < 2018-01-stratums_port.sql
+     sudo mysql --defaults-group-suffix=host1 --force < 2018-02-coins_getinfo.sql
      
     clear
     output "Generating a basic serverconfig.php"
@@ -568,10 +582,10 @@ define('"'"'EXCH_AUTO_WITHDRAW'"'"', 100.0);
 // nicehash keys deposit account & amount to deposit at a time
 define('"'"'NICEHASH_API_KEY'"'"','"'"'521c254d-8cc7-4319-83d2-ac6c604b5b49'"'"');
 define('"'"'NICEHASH_API_ID'"'"','"'"'9205'"'"');
-define('"'"'NICEHASH_DEPOSIT'"'"','"'"'3J9tapPoFCtouAZH7Th8HAPsD8aoykEHzk'"'"');
-define('"'"'NICEHASH_DEPOSIT_AMOUNT'"'"','"'"'0.01'"'"');
+define('"'"'NICEHASH_DEPOSIT'"'"','"'"'3HUJEFLhBMr2ZJNYWNhbUz6GUqBYUjXpVG'"'"');
+define('"'"'NICEHASH_DEPOSIT_AMOUNT'"'"','"'"'1.00'"'"');
 $cold_wallet_table = array(
-	'"'"'1KuE2LMZMPXJ4gsVniWLuyyPsqqZs5Av4y'"'"' => 0.10,
+	'"'"'3HUJEFLhBMr2ZJNYWNhbUz6GUqBYUjXpVG'"'"' => 1.00,
 );
 // Sample fixed pool fees
 $configFixedPoolFees = array(
